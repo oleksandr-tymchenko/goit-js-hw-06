@@ -3,10 +3,10 @@ const btnCreate = document.querySelector('button[data-create]');
 const btnDestr = document.querySelector('button[data-destroy]');
 const elementsWrapper = document.querySelector('#boxes');
 
-
 console.dir(inputEl);
+console.log(inputEl.value); // так не виходить достукатись.
 
-// inputEl.addEventListener('change', amountVal);
+// inputEl.addEventListener('input', amountVal);
 btnCreate.addEventListener('click', createBoxes);
 btnDestr.addEventListener('click', destroyBoxes);
 
