@@ -1,25 +1,37 @@
-const inputEl = document.querySelector('input');
+const inputEl = document.querySelector('input[type="number"]');
 const btnCreate = document.querySelector('button[data-create]');
 const btnDestr = document.querySelector('button[data-destroy]');
 const elementsWrapper = document.querySelector('#boxes');
 
 
-console.log(inputEl.value)
+console.dir(inputEl);
 
-inputEl.addEventListener('input', amount);
-btnCreate.addEventListener('click', amount, createBoxes);
+// inputEl.addEventListener('change', amountVal);
+btnCreate.addEventListener('click', createBoxes);
 btnDestr.addEventListener('click', destroyBoxes);
 
+// const amount = inputEl.valueOf
+// console.log(amount);
 
-
-
-function amount(event) {
-  const amountVal = Number(event.currentTarget.value);
-  // const amountVal = 6;
-  // console.log(typeof(amount));
-  // return Number(amountVal);
-  createBoxes(amountVal);
-};
+// function amountVal(event) {
+//   const amount = event.currentTarget.value;
+  
+//   // return amountVal;
+//   // const amountVal = 6;
+//   // console.log(typeof(amount));
+//   // return Number(amountVal);
+//   // if (event.target.dataset.create) {
+//   //   console.log('event.target.dataset')
+//   //   btnCreate.addEventListener('click', createBoxes(amountVal))
+//   // }
+//   // btnCreate.addEventListener('click', createBoxes(amountVal));
+//   // createBoxes(amountVal);
+//   if (event.target.dataset) {
+//     createBoxes(amount);
+//   }
+//   // event.target.dataset.create = amountVal;
+//   // console.log(event.target.dataset.create);
+// };
 
 
 // створюю ф-ю createBoxes:
@@ -36,8 +48,11 @@ function amount(event) {
 // console.log(newEl);
 
 function createBoxes(amount) {
+
   
-  console.log(amount);
+//  console.log(event.currentTarget.dataset)
+ 
+  // console.log(event.target);
   let elSize = 30;
   const elArr = [];
   for (let i = 0; i < amount; i += 1) {
@@ -53,7 +68,7 @@ function createBoxes(amount) {
    
 
   };
-  console.log(elArr);
+  // console.log(elArr);
   elementsWrapper.append(...elArr);
   
 
@@ -61,6 +76,7 @@ function createBoxes(amount) {
 
 function destroyBoxes() {
   elementsWrapper.innerHTML = '';
+  inputEl.value = '';
 }
 
 
