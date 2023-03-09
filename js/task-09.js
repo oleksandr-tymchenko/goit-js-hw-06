@@ -3,13 +3,11 @@ const bodyEl = document.querySelector('body');
 const btnEl = document.querySelector('.change-color');
 const colorSpan = document.querySelector('.color');
 
-// bodyEl.style.backgroundColor ='tomato';
-
 btnEl.addEventListener('click', onBtnClickShowColor);
 
 function onBtnClickShowColor() {
   bodyEl.style.backgroundColor = getRandomHexColor();
-  colorSpan.textContent = getRandomHexColor();
+  colorSpan.textContent = bodyEl.style.backgroundColor;
 };
 
 

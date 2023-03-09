@@ -6,13 +6,13 @@ input.addEventListener('input', onInputChange);
 
 
 function onInputChange(event) {
-    event.currentTarget.value !== '' ? labelValue.textContent = event.currentTarget.value 
-        : labelValue.textContent = 'Anonymous';
-    // labelValue.textContent = event.currentTarget.value;
+
+     
+    // event.currentTarget.value !== '' ? labelValue.textContent = event.currentTarget.value.trim() 
+    //     : labelValue.textContent = 'Anonymous';
     
-    // let inputText = event.currentTarget.value;
+    // todo заміняю на ||
+
+    labelValue.textContent = event.currentTarget.value.trim() || 'Anonymous';
     
-    // if (inputText === "") {
-    //     labelValue.textContent = 'Anonymous';
-    // }
 };
