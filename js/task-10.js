@@ -3,21 +3,61 @@ const btnCreate = document.querySelector('button[data-create]');
 const btnDestr = document.querySelector('button[data-destroy]');
 const elementsWrapper = document.querySelector('#boxes');
 
+const inpMin = Number(inputEl.min);
+const inpMax = Number(inputEl.max);
+const inpStep = Number(inputEl.step);
 
-inputEl.addEventListener('input', amountVal);
+const
+
+
+inputEl.addEventListener('change', amountVal);
+
 btnCreate.addEventListener('click', createBoxes);
 btnDestr.addEventListener('click', destroyBoxes);
 
+let amount = [];
+// console.log(inputEl.attributes);
+function amountVal(event) {
+
+  let amountVal = Number(event.currentTarget.value);
+
+  if (amountVal > inpMin && amountVal < inpMax) {
+  amount.push(amountVal);
+  }
+  
+};
 
 
+function createBoxes() {
+  
+ 
+  let elSize = 30;
+  const elArr = [];
+  for (let i = 0; i < amount[0]; i += inpStep) {
 
+    const newEl = document.createElement('div');
+  
+    newEl.style.width = `${elSize}px`;
+    newEl.style.height = `${elSize}px`;
+    newEl.style.backgroundColor = getRandomHexColor();
+    
+    elArr.push(newEl);
+    elSize += 10;
+   
 
+  };
+  
+  elementsWrapper.append(...elArr);
+  
+
+};
 
 
 
 function destroyBoxes() {
   elementsWrapper.innerHTML = '';
   inputEl.value = '';
+  amount.pop();
 }
 
 
@@ -28,7 +68,7 @@ function getRandomHexColor() {
 }
 
 
-
+// !----------------------------------------------------
 
 
 
